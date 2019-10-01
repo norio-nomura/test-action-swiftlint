@@ -1,9 +1,14 @@
-name: CI
+name: SwiftLint
 
-on: [push, pull_request]
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/swiftlint.yml'
+      - '.swiftlint.yml'
+      - '**/*.swift'
 
 jobs:
-  build:
+  SwiftLint:
 
     runs-on: ubuntu-latest
     
