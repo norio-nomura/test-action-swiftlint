@@ -15,6 +15,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: GitHub Action for SwiftLint
-      uses: norio-nomura/action-swiftlint@use-logging
+      uses: norio-nomura/action-swiftlint@stop-using-github-checks-api
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
