@@ -1,0 +1,21 @@
+name: Docker Build
+
+on:
+  push:
+    branches: [master]
+    paths: 
+      - '.github/workflows/docker-build.yml'
+      - 'Dockerfile'
+  pull_request:
+    paths: 
+      - '.github/workflows/docker-build.yml'
+      - 'Dockerfile'
+
+jobs:
+  DockerBuild:
+    name: Docker Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - run: cat Dockerfile|docker build -t swiftlint-github-actions-logging -
+      - run: docker run -v $(pwd):$(pwd) -w $(pwd) --rm swiftlint-github-actions-logging
