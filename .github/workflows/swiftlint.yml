@@ -18,3 +18,5 @@ jobs:
         uses: norio-nomura/action-swiftlint@master
         with:
           args: --path Sources
+        env:
+          DIFF_BASE: ${{ github.base_ref }}
