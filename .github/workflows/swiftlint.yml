@@ -12,5 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - run: |
+          git fetch origin +refs/heads/${{ github.base_ref }}:refs/heads/${{ github.base_ref }}
+        continue-on-error: true
       - name: GitHub Action for SwiftLint
-        uses: norio-nomura/action-swiftlint@master
+        uses: norio-nomura/action-swiftlint@refs/pull/36/head
+        env:
+          WORKING_DIRECTORY: Tests/test-action-swiftlintTests
