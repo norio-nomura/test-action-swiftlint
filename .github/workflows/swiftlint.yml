@@ -16,8 +16,6 @@ jobs:
           git fetch origin +refs/heads/${{ github.base_ref }}:refs/heads/${{ github.base_ref }}
         continue-on-error: true
       - name: GitHub Action for SwiftLint
-        uses: norio-nomura/action-swiftlint@master
-        with:
-          args: --path Sources
+        uses: norio-nomura/action-swiftlint@refs/pull/36/head
         env:
-          DIFF_BASE: ${{ github.base_ref }}
+          WORKING_DIRECTORY: Tests/test-action-swiftlintTests
